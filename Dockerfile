@@ -1,11 +1,11 @@
-# Start from a base OpenJDK image
-FROM openjdk:21-jdk-slim
-
-# Set working directory
+# ---- Stage 1: Build ----
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
+COPY . /app
 WORKDIR /app
+RUN mvn clean package -DskipTests
 
-# Copy the JAR file (adjust this name)
-COPY target/*.jar ai.jar
-
-# Run the jar
-ENTRYPOINT ["java", "-jar", "ai.jar"]
+# ---- Stage 2: Run ----
+FROM eclipse-temurin:21-jdk-alpine
+WORKDIR /app
+COPY --from=builder /app/target/*.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
