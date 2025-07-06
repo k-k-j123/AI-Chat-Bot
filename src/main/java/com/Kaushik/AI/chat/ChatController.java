@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000") 
+@CrossOrigin(origins = "https://delicate-maamoul-e1ae7b.netlify.app/") 
 @RequestMapping("/api/chat")
 public class ChatController {
 
