@@ -1,3 +1,5 @@
+com\Kaushik\AI\chat\WebConfig.class
 com\Kaushik\AI\chat\AiChatApplication.class
+com\Kaushik\AI\chat\WebConfig$1.class
 com\Kaushik\AI\chat\ChatService.class
 com\Kaushik\AI\chat\ChatController.class
